@@ -16,14 +16,23 @@ const mostrarproductos= () => {
 const carrito = []
 
 const agregaralcarrito =(productos) => {
-    carrito.push({
-        productos
-    })
+    carrito.push (productos) 
 }
 
 
+const mostrarcarrito = () =>{
+    if (carrito < 1){
+        alert ("No hay productos en el carrito")
+    }
+    else{
+    for (let i=0; i<carrito.length; i++){
+        alert (carrito)
+        break
+    }   
+}
+}
 const core = () => {
-    let opcion = Number(prompt("Bienvenido a LAZ, la mejor tienda onlione de productos electrónicos, a continuación indique la opción que corresponda: \n 1-Mostrar Productos Disponibles \n 2-Agregar Productos al Carrito"))
+    let opcion = Number(prompt("Bienvenido a LAZ, la mejor tienda onlione de productos electrónicos, a continuación indique la opción que corresponda: \n 1-Mostrar Productos Disponibles \n 2-Agregar Productos al Carrito \n 3-Mostrar productos del carrito"))
 
     let bandera = true
     let producto
@@ -34,8 +43,12 @@ const core = () => {
                 bandera = confirm ("¿Quiere realizar algun otro movimiento?")
             break
             case 2:
-                agregaralcarrito()
+                agregaralcarrito(producto)
                 producto = prompt ("¿Qué producto quiere agregar al carrito?")
+                bandera = confirm ("¿Quiere realizar algun otro movimiento?")
+            break
+            case 3:
+                mostrarcarrito()
                 bandera = confirm ("¿Quiere realizar algun otro movimiento?")
             break
             default:
@@ -43,7 +56,7 @@ const core = () => {
             break
         }
         if(bandera){
-            let opcion = Number(prompt("Bienvenido a LAZ, la mejor tienda onlione de productos electrónicos, a continuación indique la opción que corresponda: \n 1-Mostrar Productos Disponibles \n 2-Agregar Productos al Carrito"))
+            opcion = Number(prompt("Bienvenido a LAZ, la mejor tienda onlione de productos electrónicos, a continuación indique la opción que corresponda: \n 1-Mostrar Productos Disponibles \n 2-Agregar Productos al Carrito \n 3-Mostrar productos del carrito"))
         }
         else{
             alert ("Gracias por visitarnos")
